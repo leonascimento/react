@@ -278,10 +278,11 @@ function validateFragmentProps(fragment) {
 }
 
 export function createElementWithValidation(type, props, children) {
+  console.log("type>>>>", type);
   const validType =
     typeof type === 'string' ||
     typeof type === 'function' ||
-    typeof type === 'symbol' ||
+    typeof type.constructor.name === 'symbol' ||
     typeof type === 'number';
   // We warn in this case but don't throw. We expect the element creation to
   // succeed and there will likely be errors in render.
